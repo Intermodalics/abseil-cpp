@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <name>abseil_cpp</name>
+  <version>20190808.0.1</version>
+  <description>Abseil - C++ Common Libraries (catkinized)</description>
+  <url>https://abseil.io/</url>
+
+  <maintainer email="info@intermodalics.eu">Intermodalics BVBA</maintainer>
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
