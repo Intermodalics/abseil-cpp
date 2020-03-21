@@ -45,6 +45,7 @@ list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_LIST_DIR}/absl/copts
 )
 
+include(AbseilCatkin)
 include(AbseilInstallDirs)
 include(CMakePackageConfigHelpers)
 include(AbseilHelpers)
@@ -108,6 +109,20 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory(absl)
+
+# generate CMake package configuration for the catkin devel-tree
+if(CATKIN_DEVEL_PREFIX)
+  set(PACKAGE_INIT)
+  configure_file(
+    CMake/abslConfig.cmake.in
+    "${CATKIN_DEVEL_PREFIX}/lib/cmake/${PROJECT_NAME}/${PROJECT_NAME}Config.cmake"
+    @ONLY
+  )
+  export(EXPORT ${PROJECT_NAME}Targets
+    NAMESPACE absl::
+    FILE "${CATKIN_DEVEL_PREFIX}/lib/cmake/${PROJECT_NAME}/${PROJECT_NAME}Targets.cmake"
+  )
+endif()
 
 if(ABSL_ENABLE_INSTALL)
 
