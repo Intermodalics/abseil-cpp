@@ -21,6 +21,7 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 ## catkin package configuration
 catkin_package(
   CFG_EXTRAS ${PROJECT_SOURCE_DIR}/CMake/abseil_cpp-catkin-extras.cmake
+  INCLUDE_DIRS .
 )
 
 ## Restore original project 'absl'
